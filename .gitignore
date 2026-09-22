@@ -1,0 +1,20 @@
+# Compilación
+/build/
+/dist/
+
+# NetBeans
+/nbproject/private/
+/nbproject/nbactions.xml
+/nbproject/private/
+
+# Archivos temporales
+*.class
+*.log
+
+# Sistema operativo
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea/
+*.iml

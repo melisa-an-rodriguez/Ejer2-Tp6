@@ -82,18 +82,18 @@ public class Menu extends javax.swing.JFrame {
 
     private void jMenu2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu2ActionPerformed
         
-        escritorio.removeAll();
-        escritorio.repaint();
-        BusquedaPorNombre bpn = new BusquedaPorNombre();
-        bpn.setVisible(true);  //que se muestre la ventana
-        escritorio.add(bpn);// se agrega la ventana
-        escritorio.moveToFront(bpn); // que traiga la evntana al frente
         
         
     }//GEN-LAST:event_jMenu2ActionPerformed
 
     private void mnuiConsultaNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuiConsultaNombreActionPerformed
-        // TODO add your handling code here:
+        escritorio.removeAll();
+    escritorio.repaint();
+    BusquedaPorNombre bpn = new BusquedaPorNombre();
+    escritorio.add(bpn);// se agrega la ventana
+    bpn.setVisible(true);  //que se muestre la ventana
+    
+    escritorio.moveToFront(bpn); // que traiga la evntana al frente
     }//GEN-LAST:event_mnuiConsultaNombreActionPerformed
 
     public static void main(String args[]) {

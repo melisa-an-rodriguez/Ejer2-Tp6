@@ -22,11 +22,11 @@ public class Menu extends javax.swing.JFrame {
         escritorio = new javax.swing.JDesktopPane();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
+        mnuiProductos = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
-        jMenuItem2 = new javax.swing.JMenuItem();
-        jMenuItem3 = new javax.swing.JMenuItem();
-        jMenuItem4 = new javax.swing.JMenuItem();
+        mnuiConsultaRubro = new javax.swing.JMenuItem();
+        mnuiConsultaNombre = new javax.swing.JMenuItem();
+        mnuiConsultaPrecio = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(700, 600));
@@ -44,23 +44,23 @@ public class Menu extends javax.swing.JFrame {
 
         jMenu1.setText("Administración");
 
-        jMenuItem1.setText("Productos");
-        jMenu1.add(jMenuItem1);
+        mnuiProductos.setText("Productos");
+        jMenu1.add(mnuiProductos);
 
         jMenuBar1.add(jMenu1);
 
         jMenu2.setText("Consultas");
         jMenu2.addActionListener(this::jMenu2ActionPerformed);
 
-        jMenuItem2.setText("Por rubro");
-        jMenu2.add(jMenuItem2);
+        mnuiConsultaRubro.setText("Por Rubro");
+        jMenu2.add(mnuiConsultaRubro);
 
-        jMenuItem3.setText("Por Nombre");
-        jMenuItem3.addActionListener(this::jMenuItem3ActionPerformed);
-        jMenu2.add(jMenuItem3);
+        mnuiConsultaNombre.setText("Por Nombre");
+        mnuiConsultaNombre.addActionListener(this::mnuiConsultaNombreActionPerformed);
+        jMenu2.add(mnuiConsultaNombre);
 
-        jMenuItem4.setText("Por precio");
-        jMenu2.add(jMenuItem4);
+        mnuiConsultaPrecio.setText("Por precio");
+        jMenu2.add(mnuiConsultaPrecio);
 
         jMenuBar1.add(jMenu2);
 
@@ -92,9 +92,9 @@ public class Menu extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jMenu2ActionPerformed
 
-    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+    private void mnuiConsultaNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuiConsultaNombreActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem3ActionPerformed
+    }//GEN-LAST:event_mnuiConsultaNombreActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -123,10 +123,10 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem jMenuItem4;
+    private javax.swing.JMenuItem mnuiConsultaNombre;
+    private javax.swing.JMenuItem mnuiConsultaPrecio;
+    private javax.swing.JMenuItem mnuiConsultaRubro;
+    private javax.swing.JMenuItem mnuiProductos;
     // End of variables declaration//GEN-END:variables
   
 }

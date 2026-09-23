@@ -1,12 +1,10 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package detodosa;
 
 
 public class Producto implements Comparable<Producto>{
-    private int codigo;
+    
+    private final int codigo;
     private String descripcion;
     private double precio;
     private int stock;
@@ -22,10 +20,6 @@ public class Producto implements Comparable<Producto>{
 
     public int getCodigo() {
         return codigo;
-    }
-
-    public void setCodigo(int codigo) {
-        this.codigo = codigo;
     }
 
     public String getDescripcion() {
@@ -59,7 +53,7 @@ public class Producto implements Comparable<Producto>{
     public void setRubro(Categoria rubro) {
         this.rubro = rubro;
     }
-
+    
     @Override
     public int compareTo(Producto t) {
         if(codigo== t.codigo) {
@@ -69,8 +63,22 @@ public class Producto implements Comparable<Producto>{
             
         } else{
             return -1;
-        }
+        }       
+    }   
+    /* Posible simplificación:  
+    @Override
+    public int compareTo(Producto p) {      
+          return Integer.compare(this.id, p.id);       
+    }    
+    */
+
+    @Override
+    public String toString() {
+        
+        return "ID: " +codigo+ ", " +descripcion+ ", " +precio+ ", stock:" +stock+ ", " +rubro;
     }
+    
+    
     
     
 }

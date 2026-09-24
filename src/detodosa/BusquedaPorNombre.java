@@ -64,7 +64,7 @@ public class BusquedaPorNombre extends javax.swing.JInternalFrame {
         });
         jScrollPane1.setViewportView(jtProductos);
 
-        btnBuscar.setText("ÍCONO LUPA");
+        btnBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/detodosa/lupa.png"))); // NOI18N
         btnBuscar.addActionListener(this::btnBuscarActionPerformed);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -86,8 +86,8 @@ public class BusquedaPorNombre extends javax.swing.JInternalFrame {
                 .addContainerGap(15, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnBuscar)
-                .addGap(45, 45, 45))
+                .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(36, 36, 36))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -100,9 +100,9 @@ public class BusquedaPorNombre extends javax.swing.JInternalFrame {
                     .addComponent(jtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(33, 33, 33)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(34, 34, 34)
-                .addComponent(btnBuscar)
-                .addContainerGap(49, Short.MAX_VALUE))
+                .addGap(27, 27, 27)
+                .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(30, Short.MAX_VALUE))
         );
 
         pack();

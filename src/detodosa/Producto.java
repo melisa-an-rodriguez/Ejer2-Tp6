@@ -77,8 +77,6 @@ public class Producto implements Comparable<Producto>{
         
         return "ID: " +codigo+ ", " +descripcion+ ", " +precio+ ", stock:" +stock+ ", " +rubro;
     }
-    
-    
-    
+     
     
 }

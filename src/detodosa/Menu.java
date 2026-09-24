@@ -26,8 +26,7 @@ public class Menu extends javax.swing.JFrame {
         
         initComponents();
         gestionProductos = new GestionDeProductos();
-        // Menu crea el objeto;
-        // el resto de las ventanas reciben instancia existente por constructor. 
+        // Menu crea el objeto; el resto de las ventanas reciben instancia existente por constructor. 
     }
 
     
@@ -121,16 +120,32 @@ public class Menu extends javax.swing.JFrame {
     private void mnuiProductosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuiProductosActionPerformed
         
         
-        
+        ifrmProductos ventana = new ifrmProductos(gestionProductos);
+
+        escritorio.add(ventana);
+
+        ventana.setVisible(true);
         
     }//GEN-LAST:event_mnuiProductosActionPerformed
 
     private void mnuiConsultaRubroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuiConsultaRubroActionPerformed
-        // TODO add your handling code here:
+        
+        BusquedaPorRubro ventana = new BusquedaPorRubro(gestionProductos);
+
+        escritorio.add(ventana);
+
+        ventana.setVisible(true);
+        
     }//GEN-LAST:event_mnuiConsultaRubroActionPerformed
 
     private void mnuiConsultaPrecioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuiConsultaPrecioActionPerformed
-        // TODO add your handling code here:
+           
+        BusquedaPorPrecio ventana = new BusquedaPorPrecio(gestionProductos);
+
+        escritorio.add(ventana);
+
+        ventana.setVisible(true);
+        
     }//GEN-LAST:event_mnuiConsultaPrecioActionPerformed
 
     public static void main(String args[]) {

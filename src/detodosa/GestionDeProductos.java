@@ -1,5 +1,6 @@
 package detodosa;
 
+import java.util.ArrayList;
 import java.util.TreeSet;
 
 public class GestionDeProductos {
@@ -87,7 +88,19 @@ public class GestionDeProductos {
         
     
      // CONSULTAS
-   
+    
+        public ArrayList<Producto> listarTodos() {
+
+        ArrayList<Producto> productos = new ArrayList<>();
+
+        for (Producto p : setDeProductos) {
+
+            productos.add(p);
+        }
+
+        return productos;
+    }
+    
     public Producto buscarPorCodigo(int codigo) {
 
         for (Producto p : setDeProductos) {
@@ -99,5 +112,54 @@ public class GestionDeProductos {
         return null;
     }
     
+    
+     public ArrayList<Producto> buscarPorNombre(String descripcion){
+        
+        ArrayList<Producto> productosEncontrados = new ArrayList<>();
+
+        for (Producto p : setDeProductos) {
+            
+            if (p.getDescripcion().trim().equalsIgnoreCase(descripcion.trim())) {
+                
+                productosEncontrados.add(p);
+            }
+        }
+
+        return productosEncontrados;
+
+    }
+    
+    
+    public ArrayList<Producto> buscarPorPrecio(double min, double max) {
+
+        ArrayList<Producto> productosEncontrados = new ArrayList<>();
+
+        for (Producto p : setDeProductos) {
+            
+            if (p.getPrecio() >= min && p.getPrecio() <= max) {
+                
+                productosEncontrados.add(p);
+            }
+        }
+
+        return productosEncontrados;
+    }
+    
+    
+    public ArrayList<Producto> buscarPorRubro(Categoria cat) {
+
+        ArrayList<Producto> productosEncontrados = new ArrayList<>();
+
+        for (Producto p : setDeProductos) {
+            
+            if (p.getRubro() == cat) {
+                
+                productosEncontrados.add(p);
+            }
+        }
+
+        return productosEncontrados;
+    }
+       
     
 }

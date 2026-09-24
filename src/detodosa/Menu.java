@@ -119,13 +119,13 @@ public class Menu extends javax.swing.JFrame {
 
     private void mnuiProductosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuiProductosActionPerformed
         
-        
-        ifrmProductos ventana = new ifrmProductos(gestionProductos);
+        BusquedaPorPrecio ventana = new BusquedaPorPrecio(gestionProductos);
 
         escritorio.add(ventana);
 
         ventana.setVisible(true);
-        
+
+        escritorio.moveToFront(ventana);
     }//GEN-LAST:event_mnuiProductosActionPerformed
 
     private void mnuiConsultaRubroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuiConsultaRubroActionPerformed

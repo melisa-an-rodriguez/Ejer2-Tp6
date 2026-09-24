@@ -7,11 +7,27 @@ import java.util.TreeSet;
 public class Menu extends javax.swing.JFrame {
 
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(Menu.class.getName());
-    public static TreeSet<Producto> listaProductos = new TreeSet<>();
-
+    
+    // Conexión entre vistas y eventos: elimino el public static TreeSet<Producto> listaProductos = new TreeSet<>();
+    // porque ya existe un treeSet en GestionDeProductos, el cual permite utilizar los métodos internos
+    // que están programados para que trabajen con su propio treeSet y no con uno de afuera.
+    // El otro treeSet no está conectado con los métodos de GestionDeProductos.
+    
+    /*
+    Menu
+    └── GestionDeProductos
+        └── setDeProductos  ← ÚNICOS datos
+    */
+    
+    private GestionDeProductos gestionProductos;
+    
 
     public Menu() {
+        
         initComponents();
+        gestionProductos = new GestionDeProductos();
+        // Menu crea el objeto;
+        // el resto de las ventanas reciben instancia existente por constructor. 
     }
 
     
@@ -35,16 +51,17 @@ public class Menu extends javax.swing.JFrame {
         escritorio.setLayout(escritorioLayout);
         escritorioLayout.setHorizontalGroup(
             escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGap(0, 685, Short.MAX_VALUE)
         );
         escritorioLayout.setVerticalGroup(
             escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 277, Short.MAX_VALUE)
+            .addGap(0, 449, Short.MAX_VALUE)
         );
 
         jMenu1.setText("Administración");
 
         mnuiProductos.setText("Productos");
+        mnuiProductos.addActionListener(this::mnuiProductosActionPerformed);
         jMenu1.add(mnuiProductos);
 
         jMenuBar1.add(jMenu1);
@@ -53,6 +70,7 @@ public class Menu extends javax.swing.JFrame {
         jMenu2.addActionListener(this::jMenu2ActionPerformed);
 
         mnuiConsultaRubro.setText("Por Rubro");
+        mnuiConsultaRubro.addActionListener(this::mnuiConsultaRubroActionPerformed);
         jMenu2.add(mnuiConsultaRubro);
 
         mnuiConsultaNombre.setText("Por Nombre");
@@ -60,6 +78,7 @@ public class Menu extends javax.swing.JFrame {
         jMenu2.add(mnuiConsultaNombre);
 
         mnuiConsultaPrecio.setText("Por precio");
+        mnuiConsultaPrecio.addActionListener(this::mnuiConsultaPrecioActionPerformed);
         jMenu2.add(mnuiConsultaPrecio);
 
         jMenuBar1.add(jMenu2);
@@ -87,14 +106,32 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenu2ActionPerformed
 
     private void mnuiConsultaNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuiConsultaNombreActionPerformed
+   
         escritorio.removeAll();
-    escritorio.repaint();
-    BusquedaPorNombre bpn = new BusquedaPorNombre();
-    escritorio.add(bpn);// se agrega la ventana
-    bpn.setVisible(true);  //que se muestre la ventana
-    
-    escritorio.moveToFront(bpn); // que traiga la evntana al frente
+        escritorio.repaint();
+        
+        BusquedaPorNombre bpn = new BusquedaPorNombre(gestionProductos);
+        
+        escritorio.add(bpn);// se agrega la ventana
+        bpn.setVisible(true);  //que se muestre la ventana
+
+        escritorio.moveToFront(bpn); // que traiga la evntana al frente
     }//GEN-LAST:event_mnuiConsultaNombreActionPerformed
+
+    private void mnuiProductosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuiProductosActionPerformed
+        
+        
+        
+        
+    }//GEN-LAST:event_mnuiProductosActionPerformed
+
+    private void mnuiConsultaRubroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuiConsultaRubroActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_mnuiConsultaRubroActionPerformed
+
+    private void mnuiConsultaPrecioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuiConsultaPrecioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_mnuiConsultaPrecioActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */

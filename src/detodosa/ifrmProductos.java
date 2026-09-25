@@ -8,7 +8,7 @@ import javax.swing.table.DefaultTableModel;
 
 public class ifrmProductos extends javax.swing.JInternalFrame {
 
-    
+    private boolean eliminado = false;
     private GestionDeProductos gestionProductos;
       
     public ifrmProductos(GestionDeProductos gestionProductos) {
@@ -21,11 +21,11 @@ public class ifrmProductos extends javax.swing.JInternalFrame {
         cmbCategoria.addItem("COMESTIBLE");
         cmbCategoria.addItem("LIMPIEZA");
         cmbCategoria.addItem("PERFUMERIA");
-        
+        cmbRubro.addItem("Elija rubro");
         cmbRubro.addItem("COMESTIBLE");
         cmbRubro.addItem("LIMPIEZA");
         cmbRubro.addItem("PERFUMERIA");
-
+        
     }
 
    
@@ -89,6 +89,8 @@ public class ifrmProductos extends javax.swing.JInternalFrame {
         jLabel7.setText("Stock:");
 
         txtDescripcion.addActionListener(this::txtDescripcionActionPerformed);
+
+        cmbRubro.addActionListener(this::cmbRubroActionPerformed);
 
         spnStock.setPreferredSize(new java.awt.Dimension(70, 22));
 
@@ -243,7 +245,11 @@ public class ifrmProductos extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoActionPerformed
-
+        txtCodigo.setText("");
+        txtDescripcion.setText("");
+        txtPrecio.setText("");
+        cmbRubro.setSelectedIndex(0);
+        spnStock.setValue(0);
         
         
     }//GEN-LAST:event_btnNuevoActionPerformed
@@ -345,22 +351,51 @@ public class ifrmProductos extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(this,
                     "Ya existe un producto con ese código.");
         }
-
+        
     }//GEN-LAST:event_btnGuardarActionPerformed
 
     
     
-    // Evento que toma los datos modificados de los campos, modifica el objeto y actualiza la fila:
+    
     private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed
-
         
+        if (eliminado) {
+            int codigo = Integer.parseInt(txtCodigo.getText());
+            DefaultTableModel modelo
+                    = (DefaultTableModel) tblProductos.getModel();
 
+            for (int i = 0; i < modelo.getRowCount(); i++) {
+
+                int codigoTabla
+                        = Integer.parseInt(modelo.getValueAt(i, 0).toString());
+
+                if (codigoTabla == codigo) {
+                    modelo.removeRow(i);
+                    JOptionPane.showMessageDialog(this, "Tabla actualizada correctamente.");
+                    break;
+                }
+            }
+        }
+        
     }//GEN-LAST:event_btnActualizarActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
+        eliminado = true;
+        if (txtCodigo.getText().trim().isEmpty()) {
+            JOptionPane.showMessageDialog(this,
+                    "No hay ningún producto seleccionado.");
+            return;
+        }
 
-        
+        int codigo = Integer.parseInt(txtCodigo.getText());
 
+        Producto producto = gestionProductos.buscarPorCodigo(codigo);
+
+        if (producto != null) {
+
+            gestionProductos.borrarProducto(producto);
+            JOptionPane.showMessageDialog(this, "Producto eliminado correctamente.");
+        }
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
@@ -537,6 +572,10 @@ public class ifrmProductos extends javax.swing.JInternalFrame {
     private void txtDescripcionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDescripcionActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtDescripcionActionPerformed
+
+    private void cmbRubroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbRubroActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cmbRubroActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
